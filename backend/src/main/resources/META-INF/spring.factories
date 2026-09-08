@@ -1,0 +1,2 @@
+org.springframework.boot.EnvironmentPostProcessor=\
+com.tmdbah.config.DotenvEnvironmentPostProcessor

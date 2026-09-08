@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: house-hacker
+  datasource:
+    url: jdbc:postgresql://localhost:5332/house_hacker
+    username: tmdbah
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true

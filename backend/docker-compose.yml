@@ -1,0 +1,23 @@
+services:
+  db:
+    container_name: postgres-house-hacker
+    image: postgres:18
+    environment:
+      POSTGRES_USER: tmdbah
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: house_hacker
+      PGDATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5332:5432"
+    networks:
+      - db
+    restart: unless-stopped
+
+networks:
+    db:
+      driver: bridge
+
+volumes:
+    db:

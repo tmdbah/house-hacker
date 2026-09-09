@@ -1,8 +1,7 @@
 package com.tmdbah;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -11,11 +10,36 @@ import java.util.List;
 @RequestMapping("api/v1/tenants")
 public class TenantController {
 
+    private final TenantService tenantService;
+
+    public TenantController(TenantService tenantService) {
+        this.tenantService = tenantService;
+    }
+
     @GetMapping
     public List<Tenant> getTenants() {
-        return List.of(
-                new Tenant(1L, "Tenant A", "Property 1", new BigDecimal("650.00")),
-                new Tenant(2L, "Tenant B", "Property 1", new BigDecimal("700.00"))
-        );
+        return tenantService.getAllTenants();
+    }
+
+    @GetMapping("{id}")
+    public Tenant getTenantById(@PathVariable Long id) {
+        return tenantService.getTenantById(id);
+    }
+
+    @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteTenantById(@PathVariable Long id ) {
+        tenantService.deleteTenantById(id);
+    }
+
+    @PutMapping("{id}")
+    public void updateTenantById(@PathVariable Long id, @RequestBody Tenant tenant) {
+        tenantService.updateTenantById(id, tenant);
+    }
+
+    // TODO: Currently exposing entity directly in the response — should map to a DTO
+    @PostMapping
+    public void addNewTenant(@RequestBody Tenant tenant) {
+        tenantService.insertTenant(tenant);
     }
 }

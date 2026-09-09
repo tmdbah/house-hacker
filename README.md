@@ -4,9 +4,9 @@ A mobile-friendly finance tracker for house-hacking rentals — built to replace
 
 ## What it does (and why it exists)
 
-I manage the finances for a house-hack rental on behalf of a family member. The existing system was a Google Sheet — accurate, but painful to update from a phone, which meant payments regularly went unlogged and tenants got screenshot "receipts" instead of real ones.
+Tracking rental income and expenses for a house hack is usually a spreadsheet — accurate, but painful to update from a phone. That friction means payments go unlogged in the moment, receipts turn into screenshots instead of real records, and reconciling everything later takes longer than it should.
 
-House Hacker is a from-scratch rebuild of that workflow as a real, usable app: log payments, view tenants and properties, and (eventually) generate real receipts — all from a phone.
+House Hacker is an exploration of what that workflow looks like as a real, mobile-friendly app instead: log payments, view tenants and properties, and (eventually) generate real receipts — all from a phone.
 
 ## Why this project, this way
 
